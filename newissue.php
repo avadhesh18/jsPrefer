@@ -4,6 +4,7 @@ $title = getenv('ISSUE_TITLE');
 $title = trim(str_replace('[addnew]','',$title));
 $username = getenv('AUTHOR_USERNAME');
 $pageContent =  getenv('ISSUE_BODY');
+echo getenv('ISSUE_TITLE').getenv('ISSUE_BODY');
 $template = file_get_contents('template.html');
 function createSlug($t,$m=5){$t=trim(preg_replace('/[^a-zA-Z0-9]+/','-',strtolower($t)),'-');$w=explode('-',$t);return implode('-',array_slice($w,0,$m));}
 
