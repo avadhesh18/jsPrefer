@@ -48,7 +48,7 @@ $exturl = 'https://avadhesh18.github.io//tests/'.$url.'.html';
 $comment_body = 'Thank you for adding to jsPrefer. You can find your test at the following URL: 
 '.$exturl.'';
 } else {
-
+ 
     echo preg_last_error(); 
 
     echo "No matches found.";
@@ -69,8 +69,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 if ($response === false) {
+echo $response;
     echo "Error sending comment to GitHub.";
 } else {
+echo $response;
     echo "Reply successfully posted to GitHub issue.";
 }
 ?>
