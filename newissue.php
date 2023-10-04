@@ -46,6 +46,9 @@ $url = createSlug($title);
 $url = $url.'-'.time();
 file_put_contents('docs/tests/'.$url.'.html',$newtemp);
 } else {
+if (preg_last_error() !== PREG_NO_ERROR) {
+    echo preg_last_error_msg(); // Prints "Backtrack limit exhausted"
+}
     echo "No matches found.";
 }
 ?>
