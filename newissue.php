@@ -44,7 +44,7 @@ if (preg_match_all($pattern, $pageContent, $matches)) {
 $url = createSlug($title);
 $url = $url.'-'.time();
 file_put_contents('docs/tests/'.$url.'.html',$newtemp);
-$exturl = 'https://avadhesh18.github.io//tests/'.$url.'.html';
+$exturl = 'https://avadhesh18.github.io/jsPrefer/tests/'.$url.'.html';
 $comment_body = 'Thank you for adding to jsPrefer. You can find your test at the following URL: 
 '.$exturl.'';
 } else {
