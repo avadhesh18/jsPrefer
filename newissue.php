@@ -64,9 +64,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
     'Authorization: Bearer ' . getenv('ISSUE_TOKEN') 
 ));
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) - github.com/avadhesh18');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
-curl_close($ch);
+curl_close($ch); 
 
 if ($response === false) {
 echo $response;
