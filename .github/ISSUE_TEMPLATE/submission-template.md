@@ -7,10 +7,11 @@ assignees: ''
 
 ---
 
-//description
-
-//html
-
-//js1
-
-//js2
+/-_/description
+Checking how fast getting the value of innerText is as opposed to textValue
+/-_/html
+<div id="test">Some text data</div>
+/-_/js1
+var x = document.getElementById('test').innerText;
+/-_/js2
+var y = document.getElementById('test').textValue;
