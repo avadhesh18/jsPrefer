@@ -4,9 +4,11 @@ $title = getenv('ISSUE_TITLE');
 $title = trim(str_replace('[addnew]','',$title));
 $username = getenv('AUTHOR_USERNAME');
 $pageContent =  getenv('ISSUE_BODY');
-echo getenv('ISSUE_TITLE').getenv('ISSUE_BODY');
+file_put_contents('docs/test/is.txt',$pageContent);
 $template = file_get_contents('template.html');
+
 function createSlug($t,$m=5){$t=trim(preg_replace('/[^a-zA-Z0-9]+/','-',strtolower($t)),'-');$w=explode('-',$t);return implode('-',array_slice($w,0,$m));}
+
 
 $pattern = '/\/-_\/(description|html|js\d+)\n(.*?)(?=\n\/-_\/|$)/s';
 if (preg_match_all($pattern, $pageContent, $matches)) {
@@ -28,7 +30,7 @@ if (preg_match_all($pattern, $pageContent, $matches)) {
             $newtemp = str_replace('<!--js3-->',$js3,$newtemp);
     }
     else {
-    	$newtemp = str_replace('',$js3,$newtemp);
+    	$newtemp = str_replace('<!--js4-->','',$newtemp);
     }
     if (isset($data['js4'])) {
         $js4 = $data['js4'];
@@ -36,7 +38,7 @@ if (preg_match_all($pattern, $pageContent, $matches)) {
 
     }
     else {
-    	 $newtemp = str_replace('<!--js4-->',$js4,$newtemp);
+    	 $newtemp = str_replace('<!--js4-->','',$newtemp);
     }
    $newtemp = str_replace('<!-- tempdata -->','<p>'.$data['description'].'<br>Submitted by: '.$username.'</p>',$newtemp);
 
