@@ -18,6 +18,8 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           AUTHOR_USERNAME: ${{ github.event.issue.user.login }}
           ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TOKEN: ${{ secrets.ISSUE_TOKEN }}
+          ISSUE_NO: ${{ github.event.issue.number }}
         run: php newissue.php
       
       - name: Commit and Push Changes
